@@ -9,13 +9,13 @@ It is designed for the case where the file is outside the current workspace: Dow
 Install the versioned GitHub release into the default `web` DSH profile:
 
 ```sh
-npx --yes github:shaomingbo/dsh-file-picker#v0.1.0
+npx --yes github:shaomingbo/dsh-file-picker#v0.1.1
 ```
 
 For a different profile:
 
 ```sh
-npx --yes github:shaomingbo/dsh-file-picker#v0.1.0 -- --profile web
+npx --yes github:shaomingbo/dsh-file-picker#v0.1.1 --profile web
 ```
 
 Restart DSH and refresh the existing Web GUI. The installer adds the package dependency and its Cordis bundle row to `~/.dsh/profiles/<profile>/package.json` and runs `pnpm install`.
@@ -45,7 +45,7 @@ This bundle targets the current DSH Web profile architecture (`dsh.client`, `con
 Install a later tag with an explicit source:
 
 ```sh
-npx --yes github:shaomingbo/dsh-file-picker#v0.1.0 -- --source github:shaomingbo/dsh-file-picker#v0.1.0
+npx --yes github:shaomingbo/dsh-file-picker#v0.1.1 -- --source github:shaomingbo/dsh-file-picker#v0.1.0
 ```
 
 Then restart DSH and refresh the Web GUI.

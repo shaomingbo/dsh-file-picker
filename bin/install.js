@@ -7,7 +7,7 @@ import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const PACKAGE_NAME = 'dsh-file-picker'
-const DEFAULT_SOURCE = 'github:shaomingbo/dsh-file-picker#v0.1.0'
+const DEFAULT_SOURCE = 'github:shaomingbo/dsh-file-picker#v0.1.1'
 
 function parseArgs(argv) {
   const result = { profile: 'web', source: process.env.DSH_FILE_PICKER_SOURCE || DEFAULT_SOURCE }
