@@ -1,7 +1,7 @@
 {
   "name": "dsh-file-picker",
-  "version": "0.1.1",
-  "description": "Select any local file from the DSH Web GUI and add its path to the active conversation context.",
+  "version": "0.2.0",
+  "description": "Search for and select local files or directories from the DSH Web GUI for conversation context.",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
