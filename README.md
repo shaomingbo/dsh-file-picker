@@ -9,7 +9,7 @@ It is designed for paths outside the current workspace: Downloads, Desktop, anot
 Preferred — install the fixed release tag with the package's own no-argument installer:
 
 ```sh
-npx --yes github:shaomingbo/dsh-file-picker#v0.2.0
+npx --yes github:shaomingbo/dsh-file-picker#v0.2.1
 ```
 
 No subcommand is the same as `install`. The installer only edits `dependencies.dsh-file-picker` and `dsh.profile.bundles` in the target profile's `package.json` (default profile `web`), writes the manifest atomically, then runs `pnpm install --ignore-scripts` in that profile directory. It never stops or restarts DSH.
@@ -17,8 +17,8 @@ No subcommand is the same as `install`. The installer only edits `dependencies.d
 For a different profile, or from a local checkout with `link:`:
 
 ```sh
-npx --yes github:shaomingbo/dsh-file-picker#v0.2.0 --profile lab
-npx --yes github:shaomingbo/dsh-file-picker#v0.2.0 --source link:/path/to/dsh-file-picker
+npx --yes github:shaomingbo/dsh-file-picker#v0.2.1 --profile lab
+npx --yes github:shaomingbo/dsh-file-picker#v0.2.1 --source link:/path/to/dsh-file-picker
 ```
 
 The default source is pinned to the current SemVer tag; `--source` (or the `DSH_FILE_PICKER_SOURCE` environment variable) can override it. Every command also accepts `-h`/`--help`.
@@ -26,7 +26,7 @@ The default source is pinned to the current SemVer tag; `--source` (or the `DSH_
 ## Status
 
 ```sh
-npx --yes github:shaomingbo/dsh-file-picker#v0.2.0 status
+npx --yes github:shaomingbo/dsh-file-picker#v0.2.1 status
 ```
 
 Reports whether both the dependency and the bundle entry are present.
@@ -36,7 +36,7 @@ Reports whether both the dependency and the bundle entry are present.
 Idempotent — running it twice is safe, and the original manifest is restored if dependency installation fails:
 
 ```sh
-npx --yes github:shaomingbo/dsh-file-picker#v0.2.0 uninstall
+npx --yes github:shaomingbo/dsh-file-picker#v0.2.1 uninstall
 ```
 
 This removes `dsh-file-picker` from both `dependencies` and `dsh.profile.bundles`, runs `pnpm install --ignore-scripts`, and prints a reminder to restart DSH.
@@ -72,7 +72,7 @@ This bundle targets the current DSH Web profile architecture (`dsh.client`, `con
 Re-run the installer for the desired release tag (idempotent — it refreshes the pinned dependency source and keeps a single bundle entry):
 
 ```sh
-npx --yes github:shaomingbo/dsh-file-picker#v0.2.0
+npx --yes github:shaomingbo/dsh-file-picker#v0.2.1
 ```
 
 Then restart DSH and refresh the Web GUI.

@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
 import { spawnSync } from 'node:child_process'
+import { realpathSync } from 'node:fs'
 import { readFile, rename, unlink, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 export const PACKAGE_NAME = 'dsh-file-picker'
-export const DEFAULT_SOURCE = 'github:shaomingbo/dsh-file-picker#v0.2.0'
+export const DEFAULT_SOURCE = 'github:shaomingbo/dsh-file-picker#v0.2.1'
 const COMMANDS = ['install', 'status', 'uninstall']
 
 export function parseArgs(argv) {
@@ -181,7 +182,18 @@ async function main() {
   await run()
 }
 
-const invoked = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])
+// Node resolves the ESM entry through symlinks, so /var/folders/… or /tmp/…
+// scripts would silently no-op if argv[1] were compared without realpath.
+function invokedDirectly() {
+  if (!process.argv[1]) return false
+  try {
+    return realpathSync(fileURLToPath(import.meta.url)) === realpathSync(resolve(process.argv[1]))
+  } catch {
+    return false
+  }
+}
+
+const invoked = invokedDirectly()
 if (invoked) {
   main().catch((error) => {
     const script = fileURLToPath(import.meta.url)

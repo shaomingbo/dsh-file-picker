@@ -1,6 +1,6 @@
 {
   "name": "dsh-file-picker",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Search for and select local files or directories from the DSH Web GUI for conversation context.",
   "type": "module",
   "main": "lib/index.js",
